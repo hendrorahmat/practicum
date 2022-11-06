@@ -2,9 +2,10 @@ React App
 ---
 Q: Do the components render correctly? If not, what's wrong in the code?
 
-A: components will be rendered but not correctly, the problem is in the `src/components/Main.js` 
-`Attempted import error: 'currentUser' is not exported from '../contexts/CurrentUserContext'.` there is no object with 
-name `currentUser`, but you try to import object with name `currentUser` in `Main.js`, so it caused the ui crashed
+A: components will be rendered but not correctly, the problem is in the **src/components/Main.js** 
+**Attempted import error: currentUser is not exported from ../contexts/CurrentUserContext.** there is no object with 
+name **currentUser**, but you try to import object with name `currentUser` in `Main.js`, so it caused the ui crashed
+
 -----------------------
 
 Q:Is it possible to simplify the project infrastructure? How would you recommend reorganizing it? 
@@ -45,12 +46,14 @@ currently all the logic put in the controller, so it will be harder to create un
 pattern, and create services to handle business logic, so it will be easier to create unit testing and mock it, 
 and for delete card there is wrong statement, the function called delete the data of the card, but the function does 
 update the data of the card
+
 -----------------------
 Q: Do these requests correspond to REST API principles?
 
 A: Yes, currently the request url implement semantic rest, but currently there is no api documentation about it
 so if we would like to know what is the request body, we should read to the code first, it will be nice if we write api docs
 such as swagger
+
 -----------------------
 Q: Is the incoming data correctly validated? The Validator.js library is used for validation. What can be removed or 
 changed in validation if reviewers only require the URL validation for the image link?
@@ -59,11 +62,14 @@ A: we should change models/card.js if reviewers only require image link, we can 
 the name will be validated, if not exists name will be ignored, we can modify required object such as `required: function() {
 return this.name != "" && this.name != null;
 }`
+
 -----------------------
+
 Q: Is it possible to add or remove unintended data to database?
 
 A: yes, since image validation just validate url valid or not, we can put data like this http://domain.com/run.php, 
 it will be dangerous, so better not just validate the url, but we should validate file extension also
+
 -----------------------
 
 HTML & CSS
